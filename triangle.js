@@ -9,11 +9,12 @@
 function triangle() {
     // define triangle's max size
     let max = 180;
-    // generate first angle value betweem 30 and 60
-    let a = Math.floor(Math.random() * (120 - 30 + 1) + 30);
+    // generate first angle value betweem 30 and 120
+    let a = Math.floor(Math.random() * (120 - 30 + 1)) + 30;
     // generate second angle value between 30 and 60
-    let b = Math.floor(Math.random() * (150 - a + 1) + 30);
+    let b = Math.floor(Math.random() * ((120 - a) + 1)) + 30;
     // calculate third angle as the remainder
     let c = max - a - b;
-    return a + " and " + b + " and " + c;
+    return a + " and " + b + " and " + c + ". Sum is " + (a+b+c);	
 }
+triangle();
