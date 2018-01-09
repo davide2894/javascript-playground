@@ -12,7 +12,7 @@ function shuffle(arr){
 	let min = Math.min(...arr);
 
 	// populate array with numbers in range max-min
-	for(let i=min+1; i<max; i++){ arr.push(i); }
+	for(let i=min; i<max; i++){ arr.push(i); }
 	
 	// use Fisher-Yates algorithm to shuffle array
 	// read more at https://www.frankmitchell.org/2015/01/fisher-yates/
