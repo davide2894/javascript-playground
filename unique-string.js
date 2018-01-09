@@ -9,15 +9,16 @@
 
 */
 
-(function uniqueStr(...str){
+function uniqueStr(){
 	let input = "";
     // iterate over each string argument
-	for(let i=0, len=arguments.length; i<len; i++){
+	for(str in arguments){
         // concatenate string in input
-		input += str[i];
+		input += str;
 	}
     // remove duplicates 
-	let output = Array.from(new Set(input)).join("");
     // remove non-alphabetical characters and return string
-	return output.replace(/[^a-zA-Z]/g,"");
-})("every","day","a problem") // evrydapoblm
+	return Array.from(new Set(input)).join("").replace(/[^a-zA-Z]/g,"");
+
+}
+uniqueStr("every","day","a problem") // evrydapoblm
