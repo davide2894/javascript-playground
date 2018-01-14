@@ -1,47 +1,29 @@
 /*
- * @description flattens array
- * @param {array}
- * @returns array without "[" and "]" of nested arrays
- */
-/*
  *@description shits capital letter in string for n times
  *@param {array, number}
  *@returns string with letters shifted n times
  */
-function shiftCapital(str, num){
+function shiftCapital(str, n){
+	
+	// find and store capital char
+	let capitalChar = str.match(/[A-Z]/).toString();
+	
+	// store capital char's index
+	let capitalIndex = str.indexOf(capitalChar);
 
-    let len = str.length;
-    let capitalIndex;
-    let indexToGo;
+	//create array from given string and remove capital char
+    let arr = Array.from(str.replace(capitalChar, ""));
 
-    str = str.split("");
+	// calculate index to shift to
+    let toIndex = (str.indexOf(capitalChar)+n) % (arr.length);
+	
+	// add capital char to calculated index
+    arr.splice(toIndex, 0, capitalChar);
 
-    // find uppercase letter and store the index
-    for (let i = 0; i < len; i++) {
-        if (str[i] == str[i].toUpperCase()) {
-            capitalIndex = i;
-        }   
-    }
-    
-    // iterate over array from capital letter index n times
-    for (i = capitalIndex, nOfSwaps = i + num; i < nOfSwaps; i++) {
-
-        // find index to go
-        indexToGo = i % (len - 1);
-            
-        // swap values at the two indexes
-        let temp = str[indexToGo];
-        str[indexToGo] = str[capitalIndex];
-        str[capitalIndex] = temp;
-
-        // update index of capital letter
-        capitalIndex = indexToGo;
-    }
-    
-    // convert string into array    
-    return str.join("");
+	// convert array to string and return it
+    return arr.join("");	
 }
-
-shiftCapital("Udacity", 2) // daUcity
-
-
+shiftCapital("Udacity",4) // daciUty
+shiftCapital("leaRning",4) // Rleaning
+shiftCapital("frienDs",6) // frienDs
+shiftCapital("frienDs",3)  // frDiens
