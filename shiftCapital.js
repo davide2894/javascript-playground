@@ -1,7 +1,7 @@
 /*
  *@description shits capital letter in string for n times
  *@param {array, number}
- *@returns string with letters shifted n times
+ *@returns {string} with letters shifted n times
  */
 function shiftCapital(str, n){
 	
